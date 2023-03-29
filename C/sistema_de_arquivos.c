@@ -33,7 +33,9 @@ int bit_livre(char* bloco){
 	//Recebe um bloco como parametro
 	int i,j;
 	for(i = 0x01, j = 0; i <= 0x80; ++j, i=i*2){
+		//Percorrendo os bits do bloco
 		if ( ( (char) i & (*bloco) ) == (char) 0x0){
+			//Procurando o bit livre
 			//Retorna o primeiro bit livre dentro do bloco passado
 			return j;
 			}
