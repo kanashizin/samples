@@ -1,7 +1,7 @@
 /*
 
 Modelagem de um sistema de arquivos 
-Código original por André Rosa, Diego Oliveira e Vinícius Hax (2007)
+Cï¿½digo original por Andrï¿½ Rosa, Diego Oliveira e Vinï¿½cius Hax (2007)
 
 I-Node  --  	100 bytes - nome
 		1 byte - arquivo ou diretorio (0 p/ diretorio e 1 / arquivo)
@@ -27,14 +27,18 @@ I-Node  --  	100 bytes - nome
 char ea[FINAL];
 int end_raiz;
 int path = 17*TAMANHO_BLOCO;  //path eh o endereco fisico.
-
+//Alejandro Souza dos Santos
 int bit_livre(char* bloco){
+	
+	//Recebe um bloco como parametro
 	int i,j;
 	for(i = 0x01, j = 0; i <= 0x80; ++j, i=i*2){
 		if ( ( (char) i & (*bloco) ) == (char) 0x0){
+			//Retorna o primeiro bit livre dentro do bloco passado
 			return j;
 			}
 		}
+
 }
 
 void set_bit(char* byte, int bit){
@@ -224,13 +228,17 @@ void muda_nome (int bl_logico, char* nome){
 		++j;
 	}
 }
-
+//Alejandro Souza
 void renomeia(char* nome_antigo, char* nome_novo){
+	//If para verificar se o usuario esta tentando colocar o msm nome antigo
 	if (strcmp(nome_antigo, nome_novo) == 0){
+		//Aviso de erro
 		printf("O nome antigo e o mesmo que o novo.\n");
 		return;
 		}
+	//Procurando se existe um arquivo com o msm nome do arquivo informado para trocar de nome, se sim, retorna 0
 	int end_inode_antigo = existe(nome_antigo);
+	//Editando o nome do arquivo
 	muda_nome(end_inode_antigo/TAMANHO_BLOCO, nome_novo);
 }
 
@@ -546,7 +554,7 @@ void delarquivopelobloco(int bl_logico){
 				if (end_direto != 0)
 					altera_mapa(end_direto, LIVRE); //Libera bloco de dados
 			}
-			altera_mapa(end_indireto, LIVRE); //Libera bloco de endereços
+			altera_mapa(end_indireto, LIVRE); //Libera bloco de endereï¿½os
 		}
 		
 	}
@@ -586,7 +594,7 @@ void deldirpelobloco(int bl_logico){
 					altera_mapa(end_direto, LIVRE); //Libera bloco de dados
 					}
 			}
-			altera_mapa(end_indireto, LIVRE); //Libera bloco de endereços
+			altera_mapa(end_indireto, LIVRE); //Libera bloco de endereï¿½os
 		}
 		
 	}
