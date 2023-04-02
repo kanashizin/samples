@@ -36,7 +36,7 @@ int bit_livre(char* bloco){
 		//Percorrendo os bits do bloco
 		if ( ( (char) i & (*bloco) ) == (char) 0x0){
 			//Procurando o bit livre
-			//Retorna o primeiro bit livre dentro do bloco passado
+			//Retorna o primeiro bit livre dentro do bloco de parâmetro
 			return j;
 			}
 		}
