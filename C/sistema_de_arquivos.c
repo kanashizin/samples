@@ -234,7 +234,7 @@ void muda_nome (int bl_logico, char* nome){
 void renomeia(char* nome_antigo, char* nome_novo){
 	//If para verificar se o usuario esta tentando colocar o msm nome antigo
 	if (strcmp(nome_antigo, nome_novo) == 0){
-		//Aviso de erro
+		//Aviso de erro por nome igual
 		printf("O nome antigo e o mesmo que o novo.\n");
 		return;
 		}
